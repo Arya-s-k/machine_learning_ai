@@ -63,3 +63,23 @@ SELECT customer1.customerName1 , customer1.grade FROM orders
 JOIN salesman1 on orders.salesmanid = salesman1.salesmanid 
 JOIN customer1 on orders.customerid1 = customer1.customerid1 
 WHERE customer1.grade is not NULL;
+
+SELECT customer1.customerName1 as "name",
+customer1.city , salesman1.name, salesman1.comission 
+FROM customer1 JOIN salesman1 
+on customer1.salesmanid = salesman1.salesmanid
+WHERE salesman1.comission BETWEEN 0.12 and 0.15;
+
+SELECT orders.orderno , customer1.customerName1 , salesman1.comission as "comission%",
+orders.purchase * salesman1.comission as "comission amount"
+FROM orders 
+JOIN customer1 on orders.salesmanid = customer1.salesmanid
+JOIN salesman1 on orders.salesmanid = salesman1.salesmanid
+WHERE grade >= 120;
+
+SELECT * FROM customer1 
+JOIN orders 
+ON customer1.customerid1 = orders.customerid1
+WHERE orders.date = "27-4-25";
+
+
